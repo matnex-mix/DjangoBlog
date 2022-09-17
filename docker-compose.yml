@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: mysql:latest
-    restart: always
+    #restart: always
     command:
       - mysqld
       - --max_connections=3000
@@ -26,7 +26,7 @@ services:
 
   djangoblog:
     build: .
-    restart: always
+    #restart: always
     command: bash -c 'sh /code/djangoblog/bin/docker_start.sh'
     ports:
       - "8000:8000"
@@ -47,7 +47,7 @@ services:
       - db
     container_name: djangoblog
   nginx:
-    restart: always
+    #restart: always
     image: nginx:latest
     ports:
       - "80:80"
@@ -63,7 +63,7 @@ services:
     container_name: nginx
 
   redis:
-    restart: always
+    #restart: always
     image: redis:latest
     container_name: redis
     ports:
